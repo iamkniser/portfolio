@@ -12,7 +12,8 @@ export function Contacts() {
   return (
     <section id="contacts" className="on-accent rail-section mt-16 bg-accent text-paper lg:mt-24">
       <div className="mx-auto max-w-[1120px] px-6 py-16 lg:py-24 lg:pl-40">
-        <p className="font-mono text-xs font-medium uppercase tracking-[0.02em] opacity-70">
+        {/* Прозрачность ниже 0.75 роняет контраст на акцентном фоне ниже 4.5:1 */}
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.02em] opacity-80">
           06 / Контакты
         </p>
         <h2 className="mt-4 font-display text-[26px] font-medium leading-[1.2] lg:text-[34px] lg:leading-[1.15]">
@@ -40,7 +41,7 @@ export function Contacts() {
             </a>
           ))}
         </div>
-        <p className="mt-16 font-mono text-xs opacity-60">© 2026 Никита Кривошеев</p>
+        <p className="mt-16 font-mono text-xs opacity-80">© 2026 Никита Кривошеев</p>
       </div>
     </section>
   )
