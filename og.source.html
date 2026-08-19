@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: 'Unbounded';
+        font-weight: 600;
+        src: url('./node_modules/@fontsource/unbounded/files/unbounded-cyrillic-600-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'IBM Plex Sans';
+        font-weight: 400;
+        src: url('./node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-cyrillic-400-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-weight: 500;
+        src: url('./node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-cyrillic-500-normal.woff2') format('woff2');
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #f4f6f3;
+        color: #101512;
+        font-family: 'IBM Plex Sans', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .ownership {
+        width: 356px;
+        margin-right: 72px;
+        background: #ffffff;
+        border: 1px solid #d9ded8;
+        border-radius: 8px;
+        padding: 28px;
+      }
+
+      .ownership-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #5c6660;
+        margin-bottom: 26px;
+      }
+
+      .row + .row { margin-top: 22px; }
+
+      .row-head {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+      }
+
+      .row-name { text-transform: uppercase; }
+      .row-commits { color: #5c6660; }
+
+      .track {
+        height: 6px;
+        background: #d9ded8;
+        margin-top: 10px;
+      }
+
+      .bar { height: 6px; background: #1f5d45; }
+
+      /* Рельс пайплайна — тот же сигнатурный элемент, что на странице */
+      .rail { position: absolute; left: 88px; top: 0; bottom: 0; width: 1px; background: #d9ded8; }
+      .rail-fill { position: absolute; left: 88px; top: 0; height: 300px; width: 1px; background: #1f5d45; }
+      .node {
+        position: absolute; left: 84px; top: 296px;
+        width: 9px; height: 9px; background: #1f5d45; transform: rotate(45deg);
+      }
+
+      .content { padding-left: 136px; }
+
+      .eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #5c6660;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 600;
+        font-size: 62px;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+      }
+
+      .role {
+        font-family: 'Unbounded', sans-serif;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1.15;
+        color: #1f5d45;
+        margin-top: 14px;
+      }
+
+      .thesis {
+        font-size: 22px;
+        line-height: 1.5;
+        color: #5c6660;
+        margin-top: 28px;
+        max-width: 34ch;
+      }
+
+      .meta {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+        color: #5c6660;
+        margin-top: 36px;
+        padding-top: 24px;
+        border-top: 1px solid #d9ded8;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rail"></div>
+    <div class="rail-fill"></div>
+    <div class="node"></div>
+    <div class="content">
+      <div class="eyebrow">01 / Профиль</div>
+      <h1>Никита<br />Кривошеев</h1>
+      <div class="role">Ведущий фронтенд-разработчик</div>
+      <div class="thesis">
+        Делаю SaaS-продукты целиком — от схемы базы данных до продакшна.
+      </div>
+      <div class="meta">React · Next.js · TypeScript · Supabase · Астана</div>
+    </div>
+
+    <div class="ownership">
+      <div class="ownership-title">Владение кодом · доля коммитов</div>
+      <div class="row">
+        <div class="row-head"><span class="row-name">Chatera</span><span class="row-commits">1225 / 1264</span></div>
+        <div class="track"><div class="bar" style="width: 97%"></div></div>
+      </div>
+      <div class="row">
+        <div class="row-head"><span class="row-name">Медиа-платформа</span><span class="row-commits">72 / 72</span></div>
+        <div class="track"><div class="bar" style="width: 100%"></div></div>
+      </div>
+      <div class="row">
+        <div class="row-head"><span class="row-name">InstFarm v2</span><span class="row-commits">119 / 119</span></div>
+        <div class="track"><div class="bar" style="width: 100%"></div></div>
+      </div>
+    </div>
+  </body>
+</html>

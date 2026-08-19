@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.local
+.claude/settings.local.json
+.vercel
+
+# Исходные документы проекта — остаются локально
+ТЗ_сайт-портфолио.md
+Сайт-портфолио_структура.md
