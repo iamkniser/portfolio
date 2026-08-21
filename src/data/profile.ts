@@ -4,7 +4,7 @@ export const profile = {
   thesis:
     'Делаю SaaS-продукты целиком — от схемы базы данных до продакшна. Последние три проекта вёл в одиночку.',
   metaLine: 'React · Next.js · TypeScript · Supabase · 5+ лет опыта · Астана',
-  email: 'i.am.kniser@gmail.com',
+  email: 'nik.krivosheyev@gmail.com',
   telegram: 'https://t.me/kniser',
   github: 'https://github.com/iamkniser',
   linkedin: 'https://www.linkedin.com/in/nikita-krivosheyev',
