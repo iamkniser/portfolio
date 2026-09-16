@@ -9,6 +9,7 @@ export const profile = {
   github: 'https://github.com/iamkniser',
   linkedin: 'https://www.linkedin.com/in/nikita-krivosheyev',
   resumePdf: '/Krivosheyev_Nikita_resume.pdf',
+  resumePdfEn: '/Nikita_Krivosheyev_CV.pdf',
 }
 
 export interface OwnershipRow {

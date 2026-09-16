@@ -39,6 +39,15 @@ export function Header() {
           >
             Резюме (PDF)
           </a>
+          <a
+            href={profile.resumePdfEn}
+            download
+            lang="en"
+            aria-label="Resume in English (PDF)"
+            className="hidden rounded border border-line px-3 py-1.5 text-[14px] font-medium hover:border-accent sm:inline-block"
+          >
+            EN
+          </a>
         </div>
       </div>
     </header>

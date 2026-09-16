@@ -39,6 +39,14 @@ export function Hero() {
           >
             Скачать резюме
           </a>
+          <a
+            href={profile.resumePdfEn}
+            download
+            lang="en"
+            className="inline-flex h-11 items-center rounded border border-line px-5 text-[15px] font-medium hover:border-accent"
+          >
+            Resume in English
+          </a>
           <div className="flex items-center gap-1">
             {socials.map(({ label, href, Icon }) => (
               <a

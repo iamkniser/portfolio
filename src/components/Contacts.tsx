@@ -5,6 +5,7 @@ const links = [
   { label: 'GitHub', href: profile.github, external: true },
   { label: 'LinkedIn', href: profile.linkedin, external: true },
   { label: 'Скачать резюме (PDF)', href: profile.resumePdf, download: true },
+  { label: 'Resume in English (PDF)', href: profile.resumePdfEn, download: true, lang: 'en' },
 ]
 
 /** Единственный инвертированный блок страницы — визуальная точка */
@@ -35,6 +36,7 @@ export function Contacts() {
               href={l.href}
               {...(l.external ? { target: '_blank', rel: 'noreferrer' } : {})}
               {...(l.download ? { download: true } : {})}
+              lang={l.lang}
               className="text-[15px] font-medium underline underline-offset-4 hover:opacity-80"
             >
               {l.label}
