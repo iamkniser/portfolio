@@ -35,7 +35,7 @@ export function CaseCard({ study }: { study: CaseStudy }) {
         ))}
       </ul>
 
-      {study.diagram && <PipelineDiagram />}
+      {study.diagram && <PipelineDiagram {...study.diagram} />}
 
       {study.image && (
         <figure className="mt-7">

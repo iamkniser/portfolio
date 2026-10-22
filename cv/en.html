@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Nikita Krivosheyev — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  @page {
+    @bottom-left { content: 'Nikita Krivosheyev · Senior Frontend Developer'; }
+    @bottom-right { content: 'page ' counter(page); }
+  }
+</style>
+</head>
+<body>
+
+<h1>Nikita Krivosheyev</h1>
+<p class="role">Senior Frontend Developer</p>
+<p class="contacts">
+  <span>Astana, Kazakhstan</span><span>·</span>
+  <span>+7 701 604-56-47</span><span>·</span>
+  <a href="mailto:nik.krivosheyev@gmail.com">nik.krivosheyev@gmail.com</a><span>·</span>
+  <a href="https://t.me/Kniser">t.me/Kniser</a><span>·</span>
+  <a class="site" href="https://krivosheyev.dev">krivosheyev.dev</a>
+</p>
+
+<p class="summary">
+  Frontend developer with 5+ years of commercial experience. Worked both in teams of up to 20 people and as the sole
+  engineer on a product: over the past eighteen months I took three SaaS products from an empty repository to
+  production, covering architecture, backend and deployment. I focus on stateful interfaces where correctness is hard
+  to maintain: real-time chats over WebSocket, content and workflow builders, admin panels with role-based access,
+  analytics dashboards. I also build AI features: document RAG, tool-calling AI agents and evals. Experienced in
+  establishing frontend architecture (Feature-Sliced Design, Turborepo monorepos) on codebases of 35–40k lines.
+</p>
+
+<h2 class="section">Tech stack</h2>
+<dl class="stack">
+  <dt>Frontend</dt>
+  <dd>TypeScript · React 19 / 18 · Next.js 15/16 (App Router, SSR/RSC) · Redux Toolkit · RTK Query · TanStack Query v5 ·
+    Tailwind CSS 4 · shadcn/ui · Radix UI · Mantine · CSS Modules · react-hook-form · Zod · TipTap · Recharts ·
+    WebSocket · Vite · Flutter</dd>
+  <dt>AI / LLM</dt>
+  <dd>RAG · pgvector · hybrid search and reranking · tool calling · structured output · prompt caching ·
+    evals / LLM-as-judge · Vercel AI SDK</dd>
+  <dt>Testing</dt>
+  <dd>Jest · Vitest · Cypress · Playwright — unit tests for business logic and utilities, e2e coverage of key user flows</dd>
+  <dt>Backend</dt>
+  <dd>PostgreSQL (schema design, RLS policies, SQL migrations) · Supabase (Edge Functions on Deno, Auth, Storage,
+    Realtime) · Node.js · REST</dd>
+  <dt>Infrastructure</dt>
+  <dd>Docker · GitLab CI · Vercel · Sentry · Turborepo · Feature-Sliced Design · Conventional Commits ·
+    ESLint / Prettier / Husky · code review · Scrum</dd>
+</dl>
+
+<h2 class="section">Professional experience</h2>
+
+<div class="company">
+  <h2>Galamat Tech</h2>
+  <span class="date">December 2022 — August 2026</span>
+</div>
+<p class="company-role">Lead Frontend Developer · Almaty, Kazakhstan (on-site, later remote)</p>
+<p class="company-text">
+  SaaS products and custom client platforms. Grew from team developer to lead; on recent projects acted as the sole
+  engineer responsible for the entire product. Regularly ran 2–3 projects in parallel. Performed code reviews and owned
+  adherence to architectural conventions across the team.
+</p>
+
+<section class="job">
+  <div class="job-head"><h3>Traction — SaaS for team goal management</h3><span class="date">March — August 2026</span></div>
+  <p class="job-role">Full-stack, sole developer</p>
+  <p class="job-stack">React 18 · TypeScript · Vite · TanStack Query v5 · PostgreSQL · Supabase · Tailwind</p>
+  <ul>
+    <li>Rewrote core modules of an AI-generated codebase and established a Feature-Sliced Design architecture
+      (~35,000 lines) with enforced import direction and explicit module boundaries.</li>
+    <li>Implemented the product surface: kanban board, roadmap timeline, weekly report editor with autosave, OKR
+      sections, dashboards; server state on TanStack Query with optimistic updates and rollback.</li>
+    <li>Diagnosed and eliminated autosave race conditions and data loss: binding responses to entities, flushing on tab
+      close, an offline queue and version history.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Corporate project management system with a document knowledge base</h3><span class="date">April — June 2026</span></div>
+  <p class="job-role">AI assistant, access control and tests · team of 2</p>
+  <p class="job-stack">Flutter · Supabase · PostgreSQL · pgvector · Deno · TypeScript · LLM · Voyage AI</p>
+  <ul>
+    <li>Built RAG over company documents: PDFs (including scans) and office files parsed into Markdown with metadata,
+      semantic chunking, hybrid search (full-text + vector, RRF fusion) and reranking.</li>
+    <li>Wrote the AI assistant without frameworks: an agent loop with read-only tools over projects and tasks, a query
+      classifier, typed responses via a terminal tool; prompt caching, streaming, retries by error class.</li>
+    <li>Access checks live in SQL retrieval, tools and conversation history, so a closed project's data never reaches
+      the model's context. Owned access control and authentication in the client and the database.</li>
+    <li>Built evals with 50 cases (assertions + LLM-as-judge) and production metrics: cost, cache hit rate, latency.
+      Wrote ~70% of the client tests and all SQL tests.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Media Analytics Platform</h3><span class="date">May — June 2026</span></div>
+  <p class="job-role">Full-stack, sole developer</p>
+  <p class="job-stack">Next.js 16 · React 19 · TypeScript · PostgreSQL · Supabase · Deno · Anthropic Claude</p>
+  <ul>
+    <li>Built an asynchronous processing pipeline on pgmq and pg_cron: each stage (language detection, sentiment, NER,
+      embeddings, clustering) runs as a separate queue with its own worker and a shared dead-letter queue.</li>
+    <li>Implemented clustering of mentions into storylines via embedding similarity, plus near-duplicate detection to
+      keep metrics clean.</li>
+    <li>Built an AI assistant on Vercel AI SDK and Claude with a registry of domain tools, response streaming and
+      prompt caching.</li>
+    <li>Designed the PostgreSQL schema with RLS policies, 11 Edge Functions on Deno, and a six-screen frontend with live
+      updates over Realtime subscriptions.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>InstFarm v2 — multi-account Instagram management</h3><span class="date">January — April 2026</span></div>
+  <p class="job-role">Full-stack, sole developer</p>
+  <p class="job-stack">React 18 · TypeScript (strict) · Vite 6 · TanStack Query · WebCodecs API · PostgreSQL</p>
+  <ul>
+    <li>Rebuilt the second version of the product from scratch on top of an AI-generated legacy codebase.</li>
+    <li>Implemented in-browser video rendering with the WebCodecs API: demux → decode → Canvas overlay compositing →
+      encode, with a decode-once optimisation (a single decode produces N personalised variants) and a MediaRecorder
+      fallback for Safari.</li>
+    <li>Built a bulk publishing pipeline with concurrency limiting against Instagram API rate limits, per-account
+      progress reporting and partial-failure handling.</li>
+    <li>Developed an analytics module: Instagram Insights collection in batches of up to 2,000 links, engagement-rate
+      calculation, period comparison, CSV and PDF export.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Chatera — AI agent platform for messengers</h3><span class="date">March — December 2025</span></div>
+  <p class="job-role">Sole frontend developer · 1,225 of 1,264 project commits</p>
+  <p class="job-stack">Next.js 15 · React 19 · TypeScript · Redux Toolkit · RTK Query · WebSocket · Tailwind 4</p>
+  <ul>
+    <li>Designed and built the entire client from scratch — repository architecture, production features and the
+      marketing landing page.</li>
+    <li>Implemented real-time chat over WebSocket: optimistic sending with pending / sent / error states, deduplication
+      of incoming messages, infinite conversation loading.</li>
+    <li>Designed an extensible scenario builder around an ActionRegistry pattern — new action types (handover to
+      operator, deal creation in amoCRM and Bitrix24, arbitrary HTTP requests) plug in without touching the core.</li>
+    <li>Built channel integrations (Telegram, WhatsApp via Green API with QR authentication, Instagram), AI agent
+      configuration and tiered billing.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Sabaq Online — school education platform</h3><span class="date">January 2024 — March 2025</span></div>
+  <p class="job-role">Lead frontend contributor (55% of commits) · team of 6</p>
+  <p class="job-stack">Next.js · TypeScript · RTK Query · Turborepo · CKEditor 5 · S3 · G-Core Streaming</p>
+  <ul>
+    <li>Designed the architecture of two applications in a Turborepo monorepo following Feature-Sliced Design, with
+      shared packages enabling code reuse between the student area and the admin panel; agreed conventions with the
+      team and enforced them in code review.</li>
+    <li>Built the student area (courses, lessons, quizzes, XP-based gamification, subscriptions) and a role-based admin
+      panel: drag-and-drop course builder, WYSIWYG editors with mathematical formula support, performance dashboards.</li>
+    <li>Implemented a media upload module with direct-to-S3 uploads and video delivery via G-Core Streaming, including
+      progress and cancellation. Platform shipped to production.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Leonardo LMS — distance learning platform</h3><span class="date">May 2023 — April 2024</span></div>
+  <p class="job-role">Frontend developer · team of 8 · 791 of 2,016 commits</p>
+  <p class="job-stack">Next.js 13 · React 18 · TypeScript · RTK Query · Mantine · Turborepo · Zoom SDK</p>
+  <ul>
+    <li>Developed the instructor and student applications in a monorepo; contributed to adopting Feature-Sliced Design
+      (~39,000 lines) on an existing codebase within an eight-person team.</li>
+    <li>Built the learning content editor (tree-structured courses with drag-and-drop, TipTap WYSIWYG, assignments with
+      instructor grading), an RBAC permission system and Zoom Meeting SDK integration for in-app webinars.</li>
+    <li>Worked in Scrum: sprint planning, grooming, retrospectives, collaboration with QA and the product team.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <h3>Other company projects</h3>
+  <ul>
+    <li>HRCM — B2B HR assessment platform (2023; 2025–2026): analytics section, PDF report generation; brought back to
+      refactor authentication — cookie-based tokens, Next.js middleware, silent token refresh guarded by a mutex to
+      prevent refresh races across parallel requests.</li>
+    <li>Chatera Admin — internal admin panel for the chatbot platform (2024): built from scratch, 76% of commits,
+      Next.js 14 App Router, billing and subscriptions, direct-to-S3 uploads via signed URLs.</li>
+    <li>Dauys Chat Bots — chatbot builder SaaS, team of 20+ (2024–2025): bot analytics on Recharts, end-to-end payment
+      flow, Instagram, WhatsApp and Bitrix24 integrations.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h2>Independent projects</h2><span class="date">March — December 2022</span></div>
+  <p class="job-role">Fullstack Developer · team of 5</p>
+  <p class="job-stack">JavaScript · React · Redux · Material UI · Node.js · Express · PostgreSQL · Socket.io</p>
+  <ul>
+    <li>Furniture e-commerce store and a watch brand landing page: React interfaces, client- and server-side
+      authentication, a seller CRM with order tracking, API endpoints and database schema design.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h2>Kazaeronavigatsia — State Air Navigation Enterprise</h2><span class="date">November 2020 — March 2022</span></div>
+  <p class="job-role">Frontend Developer</p>
+  <p class="job-stack">JavaScript · React SSR · Bootstrap · Node.js · Express · PostgreSQL · Sequelize</p>
+  <ul>
+    <li>Flight statistics collection and reporting system: user interface, client- and server-side authentication.</li>
+  </ul>
+</section>
+
+<h2 class="section">Education &amp; languages</h2>
+<div class="edu">
+  <p>Tomsk State University — Faculty of Radiophysics, Laser Engineering and Laser Technologies</p>
+  <p>Russian — native · English — B1: confident reading technical documentation and written communication; actively
+    developing spoken fluency</p>
+</div>
+
+</body>
+</html>

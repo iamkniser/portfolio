@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cv": "bash cv/build.sh"
   },
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.2.5",

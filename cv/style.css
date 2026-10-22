@@ -1,0 +1,88 @@
+/* Общая вёрстка PDF-резюме (RU и EN). Сборка: npm run cv */
+:root {
+  --ink: #1b1f1d;
+  --muted: #6a706c;
+  --accent: #2d6a4f;
+  --bar: #1f5a45;
+  --line: #d7ddd9;
+  --sans: 'IBM Plex Sans', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+@page {
+  size: A4;
+  margin: 13mm 15mm 11mm;
+
+  /* Зелёная полоса сверху каждой страницы — один блок во всю ширину листа */
+  @top-center {
+    content: '';
+    width: 210mm;
+    background: linear-gradient(#1f5a45 0 5mm, transparent 5mm);
+  }
+
+  /* Текст колонтитулов задаётся в каждом языковом файле */
+  @bottom-left { font: 7pt 'IBM Plex Mono', monospace; color: #6a706c; vertical-align: middle; }
+  @bottom-right { font: 7pt 'IBM Plex Mono', monospace; color: #6a706c; vertical-align: middle; }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font: 8.7pt/1.32 var(--sans);
+  color: var(--ink);
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a { color: inherit; text-decoration: none; }
+
+
+h1 { font-size: 22pt; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+.role { margin-top: 1mm; font-size: 11pt; font-weight: 500; color: var(--accent); }
+.contacts {
+  margin-top: 2.5mm;
+  padding-bottom: 2mm;
+  border-bottom: 0.5pt solid var(--line);
+  font: 7.8pt var(--mono);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+.contacts .site { color: var(--accent); font-weight: 500; }
+.summary { margin-top: 2.5mm; }
+
+.section {
+  margin-top: 3mm;
+  margin-bottom: 1.5mm;
+  padding-bottom: 0.8mm;
+  border-bottom: 0.8pt solid var(--accent);
+  font: 500 7pt var(--mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.stack { display: grid; grid-template-columns: 24mm 1fr; gap: 0.6mm 2mm; }
+.stack dt { font: 500 7.3pt/1.7 var(--mono); color: var(--accent); }
+
+.company { display: flex; justify-content: space-between; align-items: baseline; margin-top: 1mm; }
+.company h2 { font-size: 11pt; font-weight: 600; }
+.company-role { font-weight: 500; color: var(--accent); }
+.company-text { color: var(--muted); }
+
+.job { margin-top: 2.2mm; }
+.job-head, .job-role, .job-stack { break-after: avoid; }
+li { break-inside: avoid; }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.job-head h3 { font-size: 9.8pt; font-weight: 600; }
+.date { flex: none; font: 7.8pt var(--mono); color: var(--muted); }
+.job-role { font-weight: 500; color: var(--accent); }
+.job-stack { font: 7.3pt/1.55 var(--mono); color: var(--muted); }
+.job h2 { font-size: 11pt; font-weight: 600; }
+
+ul { list-style: none; }
+li { position: relative; padding-left: 4.5mm; }
+li::before { content: '—'; position: absolute; left: 0; }
+
+.edu p + p { margin-top: 1.5mm; }

@@ -37,6 +37,18 @@ export const stackGroups: StackGroup[] = [
     ],
   },
   {
+    title: 'AI и LLM',
+    items: [
+      'Anthropic Claude (tool use, prompt caching, Files API)',
+      'RAG',
+      'pgvector',
+      'Гибридный поиск и rerank',
+      'Voyage AI',
+      'Vercel AI SDK',
+      'Evals и LLM-as-judge',
+    ],
+  },
+  {
     title: 'Инфраструктура и процессы',
     items: [
       'Docker',

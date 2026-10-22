@@ -2,8 +2,8 @@ export const profile = {
   name: 'Никита Кривошеев',
   role: 'Ведущий фронтенд-разработчик',
   thesis:
-    'Делаю SaaS-продукты целиком — от схемы базы данных до продакшна. Последние три проекта вёл в одиночку.',
-  metaLine: 'React · Next.js · TypeScript · Supabase · 5+ лет опыта · Астана',
+    'Делаю SaaS-продукты целиком — от схемы базы данных до продакшна, включая AI-функции: RAG по документам, AI-агентов и evals. Три продукта вывел в продакшн в одиночку.',
+  metaLine: 'React · Next.js · TypeScript · Supabase · LLM / RAG · 5+ лет опыта · Астана',
   email: 'nik.krivosheyev@gmail.com',
   telegram: 'https://t.me/kniser',
   github: 'https://github.com/iamkniser',
