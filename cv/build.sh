@@ -15,3 +15,4 @@ render() {
 
 render ru.html Krivosheyev_Nikita_resume.pdf
 render en.html Nikita_Krivosheyev_CV.pdf
+render ru-fullstack.html Krivosheyev_Nikita_resume_fullstack.pdf

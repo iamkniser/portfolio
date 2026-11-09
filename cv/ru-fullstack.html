@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Никита Кривошеев — резюме full-stack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=block" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  @page {
+    @bottom-left { content: 'Никита Кривошеев · full-stack разработчик'; }
+    @bottom-right { content: 'стр. ' counter(page); }
+  }
+</style>
+</head>
+<body>
+
+<h1>Никита Кривошеев</h1>
+<p class="role">Full-stack разработчик</p>
+<p class="contacts">
+  <span>Астана, Казахстан</span><span>·</span>
+  <span>+7 701 604-56-47</span><span>·</span>
+  <a href="mailto:nik.krivosheyev@gmail.com">nik.krivosheyev@gmail.com</a><span>·</span>
+  <a href="https://t.me/Kniser">t.me/Kniser</a><span>·</span>
+  <a class="site" href="https://krivosheyev.dev">krivosheyev.dev</a>
+</p>
+
+<p class="summary">
+  Full-stack разработчик, опыт более 5 лет. Последние проекты делаю целиком: схема PostgreSQL с RLS-политиками,
+  SQL-миграции, Edge Functions на Deno, асинхронные пайплайны на очередях, интеграции с внешними API, фронтенд и
+  деплой. За последние полтора года трижды довёл SaaS-продукты от пустого репозитория до продакшна в одиночку.
+  Строю AI-функции на бэкенде: RAG по документам с гибридным поиском в Postgres, AI-агентов с tool calling, evals и
+  метрики качества в проде. Сильная база во фронтенде: React, Next.js, TypeScript, архитектура Feature-Sliced Design
+  на кодовых базах 35–40 тыс. строк, работа в командах до 20 человек.
+</p>
+
+<h2 class="section">Стек</h2>
+<dl class="stack">
+  <dt>Backend</dt>
+  <dd>PostgreSQL (проектирование схем, RLS-политики, SQL-миграции, SECURITY DEFINER-функции) · Supabase (Edge
+    Functions на Deno, Auth, Storage, Realtime) · pgmq · pg_cron · Node.js · Express · REST · WebSocket · SSE</dd>
+  <dt>AI / LLM</dt>
+  <dd>RAG · pgvector · гибридный поиск и rerank · tool calling · structured output · prompt caching ·
+    evals / LLM-as-judge · Vercel AI SDK · Voyage AI</dd>
+  <dt>Frontend</dt>
+  <dd>TypeScript · React 19 · Next.js 15/16 (App Router, SSR/RSC) · Redux Toolkit · RTK Query · TanStack Query ·
+    Tailwind CSS 4 · shadcn/ui · react-hook-form · Zod · Vite · Flutter</dd>
+  <dt>Тестирование</dt>
+  <dd>Jest · Vitest · Cypress · Playwright · SQL-тесты в Supabase — юнит-тесты бизнес-логики, e2e-сценарии
+    ключевых пользовательских путей</dd>
+  <dt>Инфраструктура</dt>
+  <dd>Docker · GitLab CI · Vercel · Sentry · Turborepo · Conventional Commits · ESLint / Prettier / Husky ·
+    code review · Scrum</dd>
+</dl>
+
+<h2 class="section">Опыт работы</h2>
+
+<div class="company">
+  <h2>Galamat Tech</h2>
+  <span class="date">декабрь 2022 — август 2026</span>
+</div>
+<p class="company-role">Ведущий фронтенд-разработчик, далее full-stack · Алматы (офис, далее удалённо)</p>
+<p class="company-text">
+  Разработка SaaS-продуктов и заказных платформ. Прошёл путь от разработчика в команде до ведущего; на последних
+  проектах — единственный инженер, отвечающий за продукт целиком, от базы данных до интерфейса. Регулярно вёл
+  2–3 проекта параллельно. Проводил код-ревью, отвечал за соблюдение архитектурных конвенций в командной работе.
+</p>
+
+<section class="job">
+  <div class="job-head"><h3>Traction — SaaS для управления целями команды</h3><span class="date">март — август 2026</span></div>
+  <p class="job-role">Full-stack, единственный разработчик</p>
+  <p class="job-stack">Supabase · PostgreSQL · React 18 · TypeScript · Vite · TanStack Query v5 · Tailwind</p>
+  <ul>
+    <li>Переписал ключевые модули кодовой базы, изначально сгенерированной ИИ, и выстроил архитектуру Feature-Sliced
+      Design (~35 000 строк) с контролем направления импортов.</li>
+    <li>Устранил гонки автосохранения и потерю данных: привязка ответов запросов к сущности, флаш при закрытии
+      вкладки, офлайн-очередь и история версий.</li>
+    <li>Реализовал канбан-доску, roadmap-таймлайн, редактор отчётов, OKR-секции и дашборд; серверный стейт на
+      TanStack Query с оптимистичными обновлениями и откатом.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Корпоративная система управления проектами и базой знаний</h3><span class="date">апрель — июнь 2026</span></div>
+  <p class="job-role">AI-ассистент, доступы и тесты · команда 2 человека</p>
+  <p class="job-stack">Supabase · PostgreSQL · pgvector · Deno · TypeScript · LLM · Voyage AI · Flutter</p>
+  <ul>
+    <li>Построил фоновый пайплайн индексации документов на Edge Functions: запуск по вебхуку на вставку в таблицу,
+      статусы и прогресс по стадиям в БД, разбор PDF (включая сканы) и офисных файлов в Markdown с метаданными,
+      адаптивное деление длинных документов под лимиты модели.</li>
+    <li>Реализовал гибридный поиск в одной SQL-функции: полнотекст на tsvector и вектор на pgvector (HNSW), слияние
+      через Reciprocal Rank Fusion и rerank. Права пользователя применяются внутри запроса, поэтому данные закрытого
+      проекта не попадают в контекст модели.</li>
+    <li>Написал бэкенд AI-ассистента без фреймворков: агентный цикл с read-only тулами по проектам и задачам,
+      типизированный ответ через терминальный тул, стриминг по SSE, prompt caching, классификация ошибок провайдера
+      и ретраи по retry-after.</li>
+    <li>Отвечал за доступы и авторизацию в клиенте и базе. Собрал evals на 50 кейсов (ассерты + LLM-as-judge), метрики
+      в проде (стоимость, cache hit rate, латентность p50/p95), написал ~70% тестов клиента и все SQL-тесты.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Медиа-аналитическая платформа</h3><span class="date">май — июнь 2026</span></div>
+  <p class="job-role">Full-stack, единственный разработчик</p>
+  <p class="job-stack">Supabase · PostgreSQL · pgmq · pg_cron · Deno · GramJS · Next.js 16 · React 19 · TypeScript</p>
+  <ul>
+    <li>Спроектировал схему PostgreSQL (23 версионированные миграции) с RLS-политиками на всех таблицах и
+      SECURITY DEFINER-функциями для расчётов; 11 Edge Functions на Deno.</li>
+    <li>Построил асинхронный пайплайн обработки на pgmq и pg_cron: каждая стадия (язык, тональность, NER, эмбеддинги,
+      кластеризация) — отдельная очередь со своим воркером и общей dead-letter-очередью.</li>
+    <li>Источник присылал данные в Telegram через бота, а боты не видят сообщений других ботов. Вместо Bot API написал
+      MTProto-listener на GramJS с userbot-сессией.</li>
+    <li>Реализовал кластеризацию упоминаний в сюжеты через векторное сходство эмбеддингов и AI-ассистента на Vercel AI
+      SDK с реестром доменных инструментов; фронтенд из 6 экранов с обновлением через Supabase Realtime.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>InstFarm v2 — мульти-аккаунтное управление Instagram</h3><span class="date">январь — апрель 2026</span></div>
+  <p class="job-role">Full-stack, единственный разработчик</p>
+  <p class="job-stack">Supabase · React 18 · TypeScript (strict) · Vite 6 · TanStack Query · WebCodecs API</p>
+  <ul>
+    <li>Разработал вторую версию продукта с нуля на основе legacy-кода, сгенерированного ИИ.</li>
+    <li>Построил пайплайн массовой публикации с ограничением конкурентности под rate limits Instagram API, прогрессом
+      по аккаунтам и обработкой частичных ошибок; сбор Instagram Insights пакетами до 2000 ссылок, расчёт ER,
+      экспорт в CSV и PDF.</li>
+    <li>Реализовал клиентский рендеринг видео на WebCodecs API (demux → decode → оверлеи на Canvas → encode) с
+      оптимизацией decode-once и fallback на MediaRecorder для Safari, без серверной обработки.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Chatera — платформа AI-агентов для мессенджеров</h3><span class="date">март — декабрь 2025</span></div>
+  <p class="job-role">Единственный фронтенд-разработчик · 1225 из 1264 коммитов</p>
+  <p class="job-stack">Next.js 15 · React 19 · TypeScript · Redux Toolkit · RTK Query · WebSocket · Tailwind 4</p>
+  <ul>
+    <li>С нуля спроектировал и реализовал весь клиент — от архитектуры репозитория до продакшн-функционала и лендинга.</li>
+    <li>Реализовал чат в реальном времени на WebSocket: оптимистичная отправка с состояниями pending / sent / error,
+      дедупликация входящих, бесконечная подгрузка диалогов.</li>
+    <li>Спроектировал расширяемый конструктор сценариев на паттерне ActionRegistry — новые типы действий (перевод на
+      оператора, сделки в amoCRM и Bitrix24, HTTP-запросы) подключаются без правки ядра; интеграции каналов
+      (Telegram, WhatsApp, Instagram) и биллинг с тарифами.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Sabaq Online — платформа подготовки к ЕНТ</h3><span class="date">январь 2024 — март 2025</span></div>
+  <p class="job-role">Ведущий контрибьютор фронтенда (55% коммитов) · команда 6 человек</p>
+  <p class="job-stack">Next.js · TypeScript · RTK Query · Turborepo · S3 · G-Core Streaming</p>
+  <ul>
+    <li>Спроектировал архитектуру двух приложений в монорепозитории Turborepo по Feature-Sliced Design с общими
+      пакетами; реализовал кабинет ученика и админ-панель с ролевым доступом для пяти типов пользователей.</li>
+    <li>Написал модуль загрузки медиа: прямая загрузка в S3 и видео в G-Core Streaming с прогрессом и отменой. Платформа
+      запущена в продакшн.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h3>Leonardo LMS — платформа дистанционного обучения</h3><span class="date">май 2023 — апрель 2024</span></div>
+  <p class="job-role">Frontend-разработчик · команда 8 человек · 791 из 2016 коммитов</p>
+  <p class="job-stack">Next.js 13 · React 18 · TypeScript · RTK Query · Mantine · Turborepo · Zoom SDK</p>
+  <ul>
+    <li>Реализовал конструктор учебного контента, систему ролей RBAC и интеграцию Zoom Meeting SDK для вебинаров;
+      участвовал во внедрении Feature-Sliced Design (~39 000 строк). Работа по Scrum с QA и продуктовой командой.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <h3>Другие проекты компании</h3>
+  <ul>
+    <li>HRCM — B2B-платформа HR-оценки (2023; 2025–2026): генерация PDF-отчётов; повторно привлечён на рефакторинг
+      аутентификации — токены в cookies, Next.js middleware, тихий refresh токена через mutex.</li>
+    <li>Chatera Admin — админ-панель платформы чат-ботов (2024): разработал с нуля, 76% коммитов, биллинг и подписки,
+      загрузка в S3 по signed URL.</li>
+    <li>Dauys Chat Bots — SaaS-конструктор чат-ботов, команда 20+ разработчиков (2024–2025): сквозной сценарий оплаты,
+      интеграции Instagram, WhatsApp, Bitrix24, аналитика.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h2>Проектная работа</h2><span class="date">март — декабрь 2022</span></div>
+  <p class="job-role">Fullstack-разработчик · команда 5 человек</p>
+  <p class="job-stack">Node.js · Express · PostgreSQL · Socket.io · JavaScript · React · Redux · Material UI</p>
+  <ul>
+    <li>Интернет-магазин мебели «Мебель и точка» и лендинг бренда часов «Sciroco»: проектирование схемы БД,
+      эндпоинты API, авторизация на клиенте и сервере, CRM-система продавца с отслеживанием заказов, интерфейсы на React.</li>
+  </ul>
+</section>
+
+<section class="job">
+  <div class="job-head"><h2>РГП «Казаэронавигация»</h2><span class="date">ноябрь 2020 — март 2022</span></div>
+  <p class="job-role">Frontend-разработчик</p>
+  <p class="job-stack">Node.js · Express · PostgreSQL · Sequelize · JavaScript · React SSR · Bootstrap</p>
+  <ul>
+    <li>Система сбора и отображения статистики по авиаполётам: пользовательский интерфейс, авторизация на клиентской
+      и серверной части.</li>
+  </ul>
+</section>
+
+<h2 class="section">Образование и языки</h2>
+<div class="edu">
+  <p>Томский государственный университет — радиофизический факультет, специальность «Лазерная техника и лазерные технологии»</p>
+  <p>Русский — родной · Английский — B2: свободно читаю техническую документацию и переписываюсь, разговорную практику
+    активно развиваю</p>
+</div>
+
+</body>
+</html>
