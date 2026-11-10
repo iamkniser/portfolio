@@ -16,7 +16,7 @@ npm run preview   # просмотр собранной версии
 ```
 src/data/        контент: кейсы, таймлайн, стек, принципы, профиль
 src/components/  секции страницы
-src/ui/          примитивы (Section, RuleLabel, ThemeToggle)
+src/ui/          примитивы (Section, ThemeToggle)
 src/styles/      токены тем и глобальные стили
 public/          PDF-резюме, og:image, favicon
 ```

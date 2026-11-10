@@ -21,15 +21,6 @@ export function Header() {
           </nav>
           <ThemeToggle />
           <a
-            href={profile.resumePdfEn}
-            download
-            lang="en"
-            aria-label="Resume in English (PDF)"
-            className="py-2.5 text-[14px] font-medium text-slate hover:text-accent"
-          >
-            EN
-          </a>
-          <a
             href={profile.resumePdf}
             download
             className="rounded-full bg-accent px-4 py-2.5 text-[14px] font-medium text-on-accent hover:opacity-90"

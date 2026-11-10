@@ -7,7 +7,6 @@ export const profile = {
   metaLine: 'TypeScript · React · Next.js · PostgreSQL · Supabase · Python · LLM / RAG',
   email: 'nik.krivosheyev@gmail.com',
   telegram: 'https://t.me/kniser',
-  github: 'https://github.com/iamkniser',
   linkedin: 'https://www.linkedin.com/in/nikita-krivosheyev',
   resumePdf: '/Krivosheyev_Nikita_resume_fullstack.pdf',
   resumePdfEn: '/Nikita_Krivosheyev_CV.pdf',

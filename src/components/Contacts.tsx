@@ -2,7 +2,6 @@ import { profile } from '../data/profile'
 
 const links = [
   { label: 'Telegram', href: profile.telegram, external: true },
-  { label: 'GitHub', href: profile.github, external: true },
   { label: 'LinkedIn', href: profile.linkedin, external: true },
   { label: 'Резюме (PDF)', href: profile.resumePdf, download: true },
   { label: 'Resume in English (PDF)', href: profile.resumePdfEn, download: true, lang: 'en' },
