@@ -3,20 +3,20 @@ import { career } from '../data/career'
 /** Места работы: компания, должность, даты — то, что рекрутер ищет первым */
 export function Career() {
   return (
-    <div className="flex flex-col border-t border-line">
+    <ol className="flex flex-col">
       {career.map((item) => (
-        <div
+        <li
           key={item.period}
-          className="grid gap-2 border-b border-line py-6 lg:grid-cols-[200px_1fr] lg:gap-8"
+          className="flex flex-wrap gap-x-6 gap-y-1 border-b border-line py-[18px] first:pt-0"
         >
-          <span className="pt-1 font-mono text-[13px] font-medium leading-[1.5] text-slate">{item.period}</span>
-          <div>
-            <h3 className="text-[18px] font-semibold leading-[1.3] lg:text-[20px]">{item.company}</h3>
+          <span className="flex-[0_0_120px] font-mono text-[13px] text-slate">{item.period}</span>
+          <div className="min-w-0 flex-[1_1_360px]">
+            <h3 className="text-[18px] font-semibold leading-[1.3]">{item.company}</h3>
             <p className="mt-1 text-[15px] font-medium text-accent">{item.role}</p>
-            <p className="mt-2 max-w-[66ch] text-[15px] leading-[1.55] text-slate lg:text-[16px]">{item.text}</p>
+            <p className="mt-2 text-slate">{item.text}</p>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   )
 }

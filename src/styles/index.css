@@ -48,15 +48,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-@media (max-width: 640px) {
-  body {
-    font-size: 16px;
-  }
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 :focus-visible {
@@ -64,41 +57,104 @@ body {
   outline-offset: 2px;
 }
 
-/* На инвертированном (акцентном) фоне зелёный фокус не виден */
-.on-accent :focus-visible {
-  outline-color: var(--paper);
-}
-
-.rail-section {
-  scroll-margin-top: 64px;
-}
-
-/* Полосы владения кодом в hero: единственная анимация появления.
-   backwards держит полосу пустой, пока идёт задержка своей строки. */
-@keyframes bar-grow {
-  from {
-    transform: scaleX(0);
-  }
-}
-
-.bar-fill {
-  transform-origin: left;
-  animation: bar-grow 800ms ease-out var(--delay, 0ms) backwards;
-}
-
-/* Заполнение рельса пайплайна при скролле */
-.rail-fill {
-  transition: height 400ms ease;
-}
+/* Слои продукта в hero: 10-секундный цикл, слои проявляются снизу вверх,
+   рельс растёт следом, в конце — подпись. */
+@keyframes layer-1 { 0%, 2% { opacity: 0; transform: translateY(10px) } 8%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes layer-2 { 0%, 12% { opacity: 0; transform: translateY(10px) } 18%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes layer-3 { 0%, 22% { opacity: 0; transform: translateY(10px) } 28%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes layer-4 { 0%, 32% { opacity: 0; transform: translateY(10px) } 38%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes layer-5 { 0%, 42% { opacity: 0; transform: translateY(10px) } 48%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes layer-note { 0%, 52% { opacity: 0 } 60%, 90% { opacity: 1 } 96%, 100% { opacity: 0 } }
+@keyframes layer-rail { 0%, 2% { height: 0 } 48%, 100% { height: 100% } }
+.layers-item-1 { animation: layer-1 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.layers-item-2 { animation: layer-2 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.layers-item-3 { animation: layer-3 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.layers-item-4 { animation: layer-4 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.layers-item-5 { animation: layer-5 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.layers-note { animation: layer-note 10s ease infinite }
+.layers-rail { animation: layer-rail 10s cubic-bezier(0.4, 0, 0.2, 1) infinite }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .bar-fill {
+  .layers-item,
+  .layers-note,
+  .layers-rail {
     animation: none;
   }
-  .rail-fill {
-    transition: none;
-  }
+}
+
+/* ── Демо кейсов ─────────────────────────────────────────────
+   Один 10-секундный цикл на все демо: шаги .demo-s1…s5 появляются
+   по очереди, держатся и гаснут перед повтором. */
+@keyframes demo-k1 { 0%, 4% { opacity: 0; transform: translateY(8px) } 10%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-k2 { 0%, 18% { opacity: 0; transform: translateY(8px) } 24%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-k3 { 0%, 32% { opacity: 0; transform: translateY(8px) } 38%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-k4 { 0%, 46% { opacity: 0; transform: translateY(8px) } 52%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-k5 { 0%, 60% { opacity: 0; transform: translateY(8px) } 66%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+.demo-s1 { animation: demo-k1 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.demo-s2 { animation: demo-k2 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.demo-s3 { animation: demo-k3 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.demo-s4 { animation: demo-k4 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+.demo-s5 { animation: demo-k5 10s cubic-bezier(0.2, 0.7, 0.2, 1) infinite }
+
+/* Подмена в одной ячейке грида: «Иванов» → [emp_1], pending → sent */
+@keyframes demo-swap-out { 0%, 24% { opacity: 1 } 30%, 100% { opacity: 0 } }
+@keyframes demo-swap-in { 0%, 24% { opacity: 0 } 30%, 90% { opacity: 1 } 96%, 100% { opacity: 0 } }
+.demo-out { animation: demo-swap-out 10s ease infinite }
+.demo-in { animation: demo-swap-in 10s ease infinite }
+
+/* Чат: дубль появляется и отбрасывается, затем «ИИ печатает» */
+/* Обёртка дубля раскрывается через grid-template-rows: в закрытом виде высота ровно 0, без остаточных отступов */
+@keyframes demo-dedup-rows { 0%, 30% { grid-template-rows: 0fr } 36%, 56% { grid-template-rows: 1fr } 62%, 100% { grid-template-rows: 0fr } }
+@keyframes demo-dedup { 0%, 30% { opacity: 0 } 36%, 46% { opacity: 1 } 54%, 100% { opacity: 0 } }
+@keyframes demo-dedup-note { 0%, 40% { opacity: 0 } 46%, 56% { opacity: 1 } 62%, 100% { opacity: 0 } }
+@keyframes demo-typing { 0%, 50% { opacity: 0 } 54%, 62% { opacity: 1 } 65%, 100% { opacity: 0 } }
+@keyframes demo-bounce { 0%, 60%, 100% { transform: translateY(0) } 30% { transform: translateY(-4px) } }
+.demo-dedup-wrap { display: grid; animation: demo-dedup-rows 10s ease infinite }
+.demo-dedup-wrap > div { min-height: 0; overflow: hidden }
+.demo-dedup { animation: demo-dedup 10s ease infinite }
+.demo-dedup-note { animation: demo-dedup-note 10s ease infinite }
+.demo-typing { animation: demo-typing 10s ease infinite }
+/* Индикатор тоже схлопывается, иначе ответ ИИ появляется под пустой полосой */
+@keyframes demo-typing-rows { 0%, 50% { grid-template-rows: 0fr } 54%, 62% { grid-template-rows: 1fr } 66%, 100% { grid-template-rows: 0fr } }
+.demo-typing-wrap { display: grid; animation: demo-typing-rows 10s ease infinite }
+.demo-typing-wrap > div { min-height: 0; overflow: hidden }
+.demo-dot-bounce { animation: demo-bounce 1s ease-in-out infinite }
+
+/* RAG: закрытый документ гаснет и зачёркивается */
+@keyframes demo-drop { 0%, 18% { opacity: 0 } 24%, 34% { opacity: 1 } 42%, 90% { opacity: 0.4 } 96%, 100% { opacity: 0 } }
+@keyframes demo-strike { 0%, 36% { width: 0 } 42%, 100% { width: calc(100% - 16px) } }
+.demo-drop { animation: demo-drop 10s ease infinite }
+.demo-strike { width: calc(100% - 16px); animation: demo-strike 10s ease infinite }
+
+/* Пайплайн: упоминания едут по стадиям и окрашиваются по тональности */
+@keyframes demo-travel { 0% { left: 0; opacity: 0 } 6%, 92% { opacity: 1 } 100% { left: calc(100% - 12px); opacity: 0 } }
+@keyframes demo-pos { 0%, 44% { background: var(--line) } 52%, 100% { background: var(--accent) } }
+@keyframes demo-neg { 0%, 44% { background: var(--line) } 52%, 100% { background: var(--signal) } }
+@keyframes demo-neu { 0%, 44% { background: var(--line) } 52%, 100% { background: var(--slate) } }
+.demo-pos { background: var(--accent); animation: demo-travel 6s linear infinite, demo-pos 6s linear infinite }
+.demo-neg { background: var(--signal); animation: demo-travel 6s linear infinite, demo-neg 6s linear infinite }
+.demo-neu { background: var(--slate); animation: demo-travel 6s linear infinite, demo-neu 6s linear infinite }
+
+/* Видео: строка сканирования и прогресс публикации */
+@keyframes demo-scan { from { top: 0 } to { top: calc(100% - 2px) } }
+@keyframes demo-fill-a { 0%, 62% { width: 0 } 82%, 100% { width: 100% } }
+@keyframes demo-fill-b { 0%, 70% { width: 0 } 90%, 100% { width: 100% } }
+.demo-scan { animation: demo-scan 2.5s linear infinite }
+.demo-fill-a { animation: demo-fill-a 10s ease infinite }
+.demo-fill-b { animation: demo-fill-b 10s ease infinite }
+
+/* Кнопка подтверждения подсвечивается в конце цикла */
+@keyframes demo-pulse { 0%, 70% { box-shadow: 0 0 0 0 transparent } 76% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent) } 84%, 100% { box-shadow: 0 0 0 0 transparent } }
+.demo-pulse { animation: demo-k5 10s ease infinite, demo-pulse 10s ease infinite }
+
+/* Без движения — сразу финальный кадр */
+@media (prefers-reduced-motion: reduce) {
+  .demo * { animation: none !important }
+  .demo .demo-out,
+  .demo .demo-dedup-wrap,
+  .demo .demo-typing-wrap { display: none }
+  .demo .demo-travel-dot { position: static; display: inline-block; margin-right: 8px }
 }

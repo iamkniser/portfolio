@@ -2,23 +2,21 @@ import { timeline } from '../data/timeline'
 
 export function Timeline() {
   return (
-    <div className="mt-14 border-t border-line">
-      <h3 className="pb-4 pt-6 font-mono text-xs font-medium uppercase tracking-[0.02em] text-slate">
-        Другие проекты в Galamat Tech
-      </h3>
-      {timeline.map((item) => (
-        <div
-          key={item.name}
-          className="grid grid-cols-[96px_1fr] gap-4 border-b border-line py-4 lg:gap-8"
-        >
-          <span className="pt-0.5 font-mono text-[13px] font-medium leading-[1.5] text-slate">
-            {item.period}
-          </span>
-          <p className="text-[15px] leading-[1.55]">
-            <span className="font-semibold">{item.name}</span> — {item.text}
-          </p>
-        </div>
-      ))}
+    <div className="mt-14">
+      <h3 className="pb-2 font-mono text-[13px] uppercase text-slate">Другие проекты в Galamat Tech</h3>
+      <ol className="flex flex-col">
+        {timeline.map((item) => (
+          <li
+            key={item.name}
+            className="flex flex-wrap gap-x-6 gap-y-1 border-b border-line py-[18px] last:border-b-0"
+          >
+            <span className="flex-[0_0_120px] font-mono text-[13px] text-slate">{item.period}</span>
+            <p className="min-w-0 flex-[1_1_360px]">
+              <strong className="font-semibold">{item.name}</strong> — {item.text}
+            </p>
+          </li>
+        ))}
+      </ol>
     </div>
   )
 }

@@ -4,46 +4,45 @@ const links = [
   { label: 'Telegram', href: profile.telegram, external: true },
   { label: 'GitHub', href: profile.github, external: true },
   { label: 'LinkedIn', href: profile.linkedin, external: true },
-  { label: 'Скачать резюме (PDF)', href: profile.resumePdf, download: true },
+  { label: 'Резюме (PDF)', href: profile.resumePdf, download: true },
   { label: 'Resume in English (PDF)', href: profile.resumePdfEn, download: true, lang: 'en' },
 ]
 
-/** Единственный инвертированный блок страницы — визуальная точка */
+const row = 'flex min-h-12 items-center justify-between gap-4 rounded-xl px-[18px]'
+
 export function Contacts() {
   return (
-    <section id="contacts" className="on-accent rail-section mt-16 bg-accent text-paper lg:mt-24">
-      <div className="mx-auto max-w-[1120px] px-6 py-16 lg:py-24 lg:pl-40">
-        {/* Прозрачность ниже 0.75 роняет контраст на акцентном фоне ниже 4.5:1 */}
-        <p className="font-mono text-xs font-medium uppercase tracking-[0.02em] opacity-80">
-          06 / Контакты
-        </p>
-        <h2 className="mt-4 font-display text-[26px] font-medium leading-[1.2] lg:text-[34px] lg:leading-[1.15]">
-          Открыт к предложениям
+    <section
+      id="contacts"
+      aria-labelledby="contacts-title"
+      className="flex scroll-mt-20 flex-wrap items-end justify-between gap-10 border-t border-ink pb-28 pt-24"
+    >
+      <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-4">
+        <h2 id="contacts-title" className="font-display text-[clamp(32px,4.6vw,60px)] font-medium leading-[1.08]">
+          Ищу команду, где AI&nbsp;— часть продукта
         </h2>
-        <p className="mt-4 max-w-[62ch] text-[17px] leading-[1.6] opacity-90">
-          Ищу позицию full-stack или фронтенд-разработчика. Приоритет — удалённая работа; в Астане возможен офис или гибрид.
+        <p className="text-[17px] text-slate">
+          Full-stack или фронтенд. Приоритет — удалённая работа; в Астане возможен офис или гибрид.
         </p>
-        <a
-          href={`mailto:${profile.email}`}
-          className="mt-8 inline-block font-mono text-[18px] font-medium underline underline-offset-4 hover:opacity-80 lg:text-[24px]"
-        >
-          {profile.email}
+      </div>
+      <div className="flex min-w-0 flex-[0_1_360px] flex-col gap-2.5">
+        <a href={`mailto:${profile.email}`} className={`${row} bg-accent font-medium text-paper hover:opacity-90`}>
+          <span className="min-w-0 truncate">{profile.email}</span>
+          <span aria-hidden="true">→</span>
         </a>
-        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              {...(l.external ? { target: '_blank', rel: 'noreferrer' } : {})}
-              {...(l.download ? { download: true } : {})}
-              lang={l.lang}
-              className="text-[15px] font-medium underline underline-offset-4 hover:opacity-80"
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-        <p className="mt-16 font-mono text-xs opacity-80">© 2026 Никита Кривошеев</p>
+        {links.map((l) => (
+          <a
+            key={l.label}
+            href={l.href}
+            {...(l.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+            {...(l.download ? { download: true } : {})}
+            lang={l.lang}
+            className={`${row} border border-line bg-surface text-ink hover:border-accent`}
+          >
+            {l.label}
+            <span aria-hidden="true">{l.download ? '↓' : '→'}</span>
+          </a>
+        ))}
       </div>
     </section>
   )

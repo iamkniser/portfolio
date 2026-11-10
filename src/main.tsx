@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 
 // Только cyrillic и latin: пакеты без суффикса тянут ещё greek, vietnamese
 // и latin-ext, раздувая блокирующий CSS вчетверо.
+import '@fontsource/unbounded/cyrillic-400.css'
+import '@fontsource/unbounded/latin-400.css'
 import '@fontsource/unbounded/cyrillic-500.css'
 import '@fontsource/unbounded/latin-500.css'
 import '@fontsource/unbounded/cyrillic-600.css'

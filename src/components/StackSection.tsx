@@ -2,18 +2,16 @@ import { stackGroups } from '../data/stack'
 
 export function StackSection() {
   return (
-    <div className="border-t border-line">
+    <ul className="flex flex-col">
       {stackGroups.map((group) => (
-        <div
+        <li
           key={group.title}
-          className="grid gap-2 border-b border-line py-5 lg:grid-cols-[200px_1fr] lg:gap-8 lg:py-6"
+          className="flex flex-wrap gap-x-6 gap-y-1 border-b border-line py-[18px] first:pt-0 last:border-b-0"
         >
-          <h3 className="pt-1 font-mono text-xs font-medium uppercase tracking-[0.02em] text-slate">
-            {group.title}
-          </h3>
-          <p className="text-[15px] leading-[1.7] lg:text-[17px]">{group.items.join(' · ')}</p>
-        </div>
+          <h3 className="flex-[0_0_120px] font-mono text-[13px] uppercase text-slate">{group.title}</h3>
+          <p className="min-w-0 flex-[1_1_360px]">{group.items.join(' · ')}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }

@@ -4,7 +4,6 @@ import { Contacts } from './components/Contacts'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Principles } from './components/Principles'
-import { Rail } from './components/Rail'
 import { StackSection } from './components/StackSection'
 import { StatsBar } from './components/StatsBar'
 import { Timeline } from './components/Timeline'
@@ -20,31 +19,39 @@ export default function App() {
         Пропустить навигацию
       </a>
       <Header />
-      <main id="main">
-        <div id="rail-host" className="relative mx-auto max-w-[1120px] px-6">
-          <Rail />
-          <div className="lg:pl-40">
-            <Section id="profile" num="01" label="Профиль" first>
-              <Hero />
-              <StatsBar />
-            </Section>
-            <Section id="projects" num="02" label="Проекты" title="Избранные кейсы">
-              <Cases />
-            </Section>
-            <Section id="experience" num="03" label="Опыт" title="Карьера">
-              <Career />
-              <Timeline />
-            </Section>
-            <Section id="stack" num="04" label="Стек" title="Стек">
-              <StackSection />
-            </Section>
-            <Section id="approach" num="05" label="Подход" title="Как я работаю">
-              <Principles />
-            </Section>
-          </div>
-        </div>
+      <main id="main" className="mx-auto max-w-[1288px] px-6">
+        <Section id="profile" num="01" label="Профиль" variant="hero">
+          <Hero />
+          <StatsBar />
+        </Section>
+        <Section
+          id="projects"
+          num="02"
+          label="Проекты"
+          title="Проекты"
+          variant="top"
+          note="у каждого кейса короткое демо ключевой механики"
+        >
+          <Cases />
+        </Section>
+        <Section id="experience" num="03" label="Опыт" title="Карьера" variant="split">
+          <Career />
+          <Timeline />
+        </Section>
+        <Section id="stack" num="04" label="Стек" title="Стек" variant="split">
+          <StackSection />
+        </Section>
+        <Section id="approach" num="05" label="Подход" title="Как я работаю" variant="split">
+          <Principles />
+        </Section>
         <Contacts />
       </main>
+      <footer className="border-t border-line">
+        <div className="mx-auto flex max-w-[1288px] flex-wrap justify-between gap-2 px-6 py-6 font-mono text-xs text-slate">
+          <span>© 2026 Никита Кривошеев</span>
+          <span>krivosheyev.dev</span>
+        </div>
+      </footer>
     </>
   )
 }

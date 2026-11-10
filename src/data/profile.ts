@@ -13,20 +13,23 @@ export const profile = {
   resumePdfEn: '/Nikita_Krivosheyev_CV.pdf',
 }
 
-export interface OwnershipRow {
+export interface ProductLayer {
   name: string
-  /** Уточнение зоны, если проект не целиком мой */
-  scope?: string
-  commits: string
-  pct: number
+  tech: string
+  /** Выделяется акцентом: главный слой позиционирования */
+  highlight?: boolean
 }
 
-export const ownership: OwnershipRow[] = [
-  { name: 'Природоохранная организация', commits: '48 / 48', pct: 100 },
-  { name: 'Медиа-платформа', commits: '72 / 72', pct: 100 },
-  { name: 'InstFarm v2', commits: '119 / 119', pct: 100 },
-  { name: 'Chatera', scope: 'фронтенд', commits: '1225 / 1264', pct: 97 },
+/** Слои одного продукта в hero, сверху вниз (появляются снизу вверх) */
+export const productLayers: ProductLayer[] = [
+  { name: 'Релиз', tech: 'Vercel · Docker · GitLab CI · Sentry' },
+  { name: 'Интерфейс', tech: 'React · Next.js · realtime · WebCodecs' },
+  { name: 'AI', tech: 'RAG · агенты · evals · Python / FastAPI', highlight: true },
+  { name: 'Сервер', tech: 'Server Actions · Edge Functions · pgmq' },
+  { name: 'Данные', tech: 'PostgreSQL · миграции · RLS · pgvector' },
 ]
 
-/** Подпись под графиком: противовес образу «чистого одиночки» */
+export const layersNote = 'Три продукта подряд — все слои одним человеком.'
+
+/** Подпись под схемой: противовес образу «чистого одиночки» */
 export const teamNote = 'Работал и в командах из 6, 8 и 20+ человек: код-ревью, архитектурные конвенции.'
