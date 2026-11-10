@@ -5,7 +5,6 @@ const links = [
   { label: 'GitHub', href: profile.github, external: true },
   { label: 'LinkedIn', href: profile.linkedin, external: true },
   { label: 'Скачать резюме (PDF)', href: profile.resumePdf, download: true },
-  { label: 'Фронтенд-версия резюме (PDF)', href: profile.resumePdfFrontend, download: true },
   { label: 'Resume in English (PDF)', href: profile.resumePdfEn, download: true, lang: 'en' },
 ]
 

@@ -1,3 +1,4 @@
+import { Career } from './components/Career'
 import { Cases } from './components/Cases'
 import { Contacts } from './components/Contacts'
 import { Header } from './components/Header'
@@ -30,7 +31,8 @@ export default function App() {
             <Section id="projects" num="02" label="Проекты" title="Избранные кейсы">
               <Cases />
             </Section>
-            <Section id="experience" num="03" label="Опыт" title="Остальной опыт">
+            <Section id="experience" num="03" label="Опыт" title="Карьера">
+              <Career />
               <Timeline />
             </Section>
             <Section id="stack" num="04" label="Стек" title="Стек">

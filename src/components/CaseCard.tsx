@@ -1,7 +1,15 @@
+import { ChevronDown } from 'lucide-react'
 import type { CaseStudy } from '../data/cases'
 import { RuleLabel } from '../ui/RuleLabel'
 import { PipelineDiagram } from './PipelineDiagram'
 
+const bullet =
+  'relative pl-5 before:absolute before:left-0 before:top-[9px] before:h-[5px] before:w-[5px] before:rotate-45 before:bg-accent'
+
+/**
+ * Два уровня чтения: сверху — суть и результат простым языком (для рекрутера),
+ * под «Как это устроено» — задача и технические детали (для техлида).
+ */
 export function CaseCard({ study }: { study: CaseStudy }) {
   return (
     <article className="rounded-lg border border-line bg-surface p-6 lg:p-8">
@@ -18,22 +26,20 @@ export function CaseCard({ study }: { study: CaseStudy }) {
         {study.role}
       </span>
 
-      <RuleLabel>Задача</RuleLabel>
-      <p className="max-w-[62ch] text-[15px] leading-[1.55] lg:text-[17px] lg:leading-[1.6]">
-        {study.task}
-      </p>
-
-      <RuleLabel>Решение</RuleLabel>
-      <ul className="flex max-w-[70ch] flex-col gap-3">
-        {study.solution.map((item) => (
-          <li
-            key={item}
-            className="relative pl-5 text-[15px] leading-[1.55] before:absolute before:left-0 before:top-[9px] before:h-[5px] before:w-[5px] before:rotate-45 before:bg-accent lg:text-[17px] lg:leading-[1.6]"
-          >
+      <ul className="mt-6 flex max-w-[66ch] flex-col gap-3">
+        {study.highlights.map((item) => (
+          <li key={item} className={`${bullet} text-[16px] leading-[1.55] lg:text-[17px] lg:leading-[1.6]`}>
             {item}
           </li>
         ))}
       </ul>
+
+      {study.result && (
+        <div className="mt-6 max-w-[66ch] border-l-2 border-accent pl-4">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.02em] text-accent">Результат</p>
+          <p className="mt-1 text-[15px] leading-[1.55] lg:text-[16px]">{study.result}</p>
+        </div>
+      )}
 
       {study.diagram && <PipelineDiagram {...study.diagram} />}
 
@@ -51,16 +57,26 @@ export function CaseCard({ study }: { study: CaseStudy }) {
         </figure>
       )}
 
-      {study.result && (
-        <>
-          <RuleLabel>Результат</RuleLabel>
-          <p className="max-w-[62ch] text-[15px] leading-[1.55] lg:text-[17px] lg:leading-[1.6]">
-            {study.result}
-          </p>
-        </>
-      )}
+      <details className="group mt-7 border-t border-line pt-4">
+        <summary className="flex cursor-pointer list-none items-center gap-2 text-[15px] font-medium text-accent hover:opacity-80 [&::-webkit-details-marker]:hidden">
+          Как это устроено
+          <ChevronDown size={16} className="transition-transform group-open:rotate-180" aria-hidden="true" />
+        </summary>
 
-      <p className="mt-7 border-t border-line pt-4 font-mono text-xs font-medium tracking-[0.02em] text-slate">
+        <RuleLabel>Задача</RuleLabel>
+        <p className="max-w-[62ch] text-[15px] leading-[1.55] lg:text-[16px] lg:leading-[1.6]">{study.task}</p>
+
+        <RuleLabel>Решение</RuleLabel>
+        <ul className="flex max-w-[70ch] flex-col gap-3">
+          {study.solution.map((item) => (
+            <li key={item} className={`${bullet} text-[15px] leading-[1.55] lg:text-[16px] lg:leading-[1.6]`}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      <p className="mt-6 border-t border-line pt-4 font-mono text-xs font-medium tracking-[0.02em] text-slate">
         {study.stack.join(' · ')}
       </p>
     </article>

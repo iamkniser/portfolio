@@ -3,7 +3,6 @@ import { profile } from '../data/profile'
 import { OwnershipChart } from './OwnershipChart'
 
 const socials = [
-  { label: 'Telegram', href: profile.telegram, Icon: Send },
   { label: 'GitHub', href: profile.github, Icon: Github },
   { label: 'LinkedIn', href: profile.linkedin, Icon: Linkedin },
   { label: 'Почта', href: `mailto:${profile.email}`, Icon: Mail },
@@ -13,6 +12,10 @@ export function Hero() {
   return (
     <div className="grid gap-12 pt-4 lg:grid-cols-12 lg:items-center lg:pt-14">
       <div className="lg:col-span-7">
+        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-[14px] font-medium">
+          <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+          {profile.status}
+        </p>
         <h1 className="font-display text-[34px] font-semibold leading-[1.1] lg:text-[56px] lg:leading-[1.05]">
           {profile.name}
           <span className="mt-3 block text-[22px] font-medium leading-[1.2] text-accent lg:text-[30px]">
@@ -27,25 +30,28 @@ export function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="#projects"
-            className="inline-flex h-11 items-center rounded bg-accent px-5 text-[15px] font-medium text-paper hover:opacity-90"
+            href={profile.telegram}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-11 items-center gap-2 rounded bg-accent px-5 text-[15px] font-medium text-paper hover:opacity-90"
           >
-            Посмотреть проекты
+            <Send size={16} aria-hidden="true" />
+            Написать в Telegram
           </a>
           <a
             href={profile.resumePdf}
             download
             className="inline-flex h-11 items-center rounded border border-line px-5 text-[15px] font-medium hover:border-accent"
           >
-            Скачать резюме
+            Резюме (PDF)
           </a>
           <a
             href={profile.resumePdfEn}
             download
             lang="en"
-            className="inline-flex h-11 items-center rounded border border-line px-5 text-[15px] font-medium hover:border-accent"
+            className="text-[15px] font-medium text-slate underline underline-offset-4 hover:text-accent"
           >
-            Resume in English
+            English CV
           </a>
           <div className="flex items-center gap-1">
             {socials.map(({ label, href, Icon }) => (
