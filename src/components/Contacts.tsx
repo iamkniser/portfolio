@@ -5,6 +5,7 @@ const links = [
   { label: 'GitHub', href: profile.github, external: true },
   { label: 'LinkedIn', href: profile.linkedin, external: true },
   { label: 'Скачать резюме (PDF)', href: profile.resumePdf, download: true },
+  { label: 'Фронтенд-версия резюме (PDF)', href: profile.resumePdfFrontend, download: true },
   { label: 'Resume in English (PDF)', href: profile.resumePdfEn, download: true, lang: 'en' },
 ]
 
@@ -21,7 +22,7 @@ export function Contacts() {
           Открыт к предложениям
         </h2>
         <p className="mt-4 max-w-[62ch] text-[17px] leading-[1.6] opacity-90">
-          Ищу позицию senior-фронтенд-разработчика. Приоритет — удалённая работа; в Астане возможен офис или гибрид.
+          Ищу позицию full-stack или фронтенд-разработчика. Приоритет — удалённая работа; в Астане возможен офис или гибрид.
         </p>
         <a
           href={`mailto:${profile.email}`}

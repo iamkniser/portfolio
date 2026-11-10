@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 import { ownership } from '../data/profile'
 
-/** Блок «Владение кодом»: доля коммитов по трём соло-проектам */
+/** Блок «Владение кодом»: доля коммитов по соло-проектам */
 export function OwnershipChart() {
   return (
     <div className="rounded-lg border border-line bg-surface p-6">

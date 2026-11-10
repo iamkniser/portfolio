@@ -30,10 +30,14 @@ export const stackGroups: StackGroup[] = [
   {
     title: 'Backend и данные',
     items: [
-      'Supabase (PostgreSQL, RLS, Edge Functions на Deno, Auth, Storage, Realtime)',
+      'PostgreSQL (схемы, RLS, SQL-миграции)',
+      'Supabase (Edge Functions на Deno, Auth, Storage, Realtime)',
+      'pgmq · pg_cron',
+      'Next.js Server Actions',
       'Node.js',
-      'REST',
-      'SQL-миграции',
+      'Python',
+      'FastAPI',
+      'REST · WebSocket · SSE',
     ],
   },
   {
@@ -44,6 +48,8 @@ export const stackGroups: StackGroup[] = [
       'pgvector',
       'Гибридный поиск и rerank',
       'Voyage AI',
+      'LangGraph',
+      'MCP',
       'Vercel AI SDK',
       'Evals и LLM-as-judge',
     ],
