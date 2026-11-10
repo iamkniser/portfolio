@@ -28,10 +28,9 @@
 
 <p class="summary">
   Full-stack разработчик, опыт более 5 лет. Последние проекты делаю целиком: схема PostgreSQL с RLS-политиками,
-  SQL-миграции, Edge Functions на Deno, асинхронные пайплайны на очередях, интеграции с внешними API, фронтенд и
-  деплой. За последние полтора года трижды довёл SaaS-продукты от пустого репозитория до продакшна в одиночку.
-  Строю AI-функции на бэкенде: RAG по документам с гибридным поиском в Postgres, AI-агентов с tool calling, evals и
-  метрики качества в проде. Сильная база во фронтенде: React, Next.js, TypeScript, архитектура Feature-Sliced Design
+  SQL-миграции, Edge Functions на Deno, очереди, интеграции с внешними API, фронтенд и деплой. За последний год в одиночку сделал четыре продукта, от пустого репозитория до рабочей системы.
+  Строю AI-функции на бэкенде: RAG по документам с гибридным поиском в Postgres, AI-агентов с tool calling
+  (в том числе на Python и LangGraph), evals и метрики качества в проде. Сильная база во фронтенде: React, Next.js, TypeScript, архитектура Feature-Sliced Design
   на кодовых базах 35–40 тыс. строк, работа в командах до 20 человек.
 </p>
 
@@ -39,22 +38,42 @@
 <dl class="stack">
   <dt>Backend</dt>
   <dd>PostgreSQL (проектирование схем, RLS-политики, SQL-миграции, SECURITY DEFINER-функции) · Supabase (Edge
-    Functions на Deno, Auth, Storage, Realtime) · pgmq · pg_cron · Node.js · Express · REST · WebSocket · SSE</dd>
+    Functions на Deno, Auth, Storage, Realtime) · pgmq · pg_cron · Next.js Server Actions · Node.js · Express ·
+    Python · FastAPI · REST · WebSocket · SSE</dd>
   <dt>AI / LLM</dt>
   <dd>RAG · pgvector · гибридный поиск и rerank · tool calling · structured output · prompt caching ·
-    evals / LLM-as-judge · Vercel AI SDK · Voyage AI</dd>
+    evals / LLM-as-judge · LangGraph · MCP · Vercel AI SDK · Voyage AI</dd>
   <dt>Frontend</dt>
   <dd>TypeScript · React 19 · Next.js 15/16 (App Router, SSR/RSC) · Redux Toolkit · RTK Query · TanStack Query ·
     Tailwind CSS 4 · shadcn/ui · react-hook-form · Zod · Vite · Flutter</dd>
   <dt>Тестирование</dt>
-  <dd>Jest · Vitest · Cypress · Playwright · SQL-тесты в Supabase — юнит-тесты бизнес-логики, e2e-сценарии
-    ключевых пользовательских путей</dd>
+  <dd>Jest · Vitest · Cypress · Playwright · pytest · SQL-тесты в Supabase</dd>
   <dt>Инфраструктура</dt>
-  <dd>Docker · GitLab CI · Vercel · Sentry · Turborepo · Conventional Commits · ESLint / Prettier / Husky ·
-    code review · Scrum</dd>
+  <dd>Docker · GitLab CI · Vercel · Sentry · Turborepo · ESLint / Prettier / Husky · code review · Scrum</dd>
 </dl>
 
 <h2 class="section">Опыт работы</h2>
+
+<div class="company">
+  <h2>Фриланс</h2>
+  <span class="date">сентябрь 2026 — настоящее время</span>
+</div>
+<p class="company-role">Full-stack разработчик · удалённо</p>
+
+<section class="job">
+  <div class="job-head"><h3>АСБК — внутренняя система природоохранной организации</h3><span class="date">сентябрь 2026 — настоящее время</span></div>
+  <p class="job-role">Единственный разработчик: спецификация, архитектура, бэкенд, AI-сервис, фронтенд</p>
+  <p class="job-stack">Next.js 16 · Server Actions · Supabase · PostgreSQL · Python · FastAPI · LangGraph · pgvector · MCP</p>
+  <ul>
+    <li>Разобрал процессы заказчика, написал спецификацию и зафиксировал архитектурные решения. Модульный монолит на Next.js: мутации в Server
+      Actions, права в приложении и RLS в Postgres как второй рубеж. Командировки от заявки и согласования до приказа
+      в PDF, учёт ГСМ, мультивалютные суточные, календарь людей и машин, дашборд расходов.</li>
+    <li>Вынес AI в сервис на Python / FastAPI: он только вычисляет предложения, права и запись в БД остаются в Next.
+      RAG по документам с фоновой индексацией через очередь на Postgres, гибридным поиском и 30 eval-кейсами.</li>
+    <li>Агент на LangGraph составляет заявку из свободного текста: имена сотрудников маскируются до модели, заявку
+      создаёт человек после подтверждения. MCP-сервер для Claude Code / Desktop с журналом аудита.</li>
+  </ul>
+</section>
 
 <div class="company">
   <h2>Galamat Tech</h2>
@@ -109,8 +128,7 @@
       SECURITY DEFINER-функциями для расчётов; 11 Edge Functions на Deno.</li>
     <li>Построил асинхронный пайплайн обработки на pgmq и pg_cron: каждая стадия (язык, тональность, NER, эмбеддинги,
       кластеризация) — отдельная очередь со своим воркером и общей dead-letter-очередью.</li>
-    <li>Источник присылал данные в Telegram через бота, а боты не видят сообщений других ботов. Вместо Bot API написал
-      MTProto-listener на GramJS с userbot-сессией.</li>
+    <li>Боты Telegram не видят сообщений других ботов, поэтому вместо Bot API написал MTProto-listener на GramJS.</li>
     <li>Реализовал кластеризацию упоминаний в сюжеты через векторное сходство эмбеддингов и AI-ассистента на Vercel AI
       SDK с реестром доменных инструментов; фронтенд из 6 экранов с обновлением через Supabase Realtime.</li>
   </ul>
@@ -124,7 +142,7 @@
     <li>Разработал вторую версию продукта с нуля на основе legacy-кода, сгенерированного ИИ.</li>
     <li>Построил пайплайн массовой публикации с ограничением конкурентности под rate limits Instagram API, прогрессом
       по аккаунтам и обработкой частичных ошибок; сбор Instagram Insights пакетами до 2000 ссылок, расчёт ER,
-      экспорт в CSV и PDF.</li>
+      экспорт CSV / PDF.</li>
     <li>Реализовал клиентский рендеринг видео на WebCodecs API (demux → decode → оверлеи на Canvas → encode) с
       оптимизацией decode-once и fallback на MediaRecorder для Safari, без серверной обработки.</li>
   </ul>
@@ -151,8 +169,8 @@
   <ul>
     <li>Спроектировал архитектуру двух приложений в монорепозитории Turborepo по Feature-Sliced Design с общими
       пакетами; реализовал кабинет ученика и админ-панель с ролевым доступом для пяти типов пользователей.</li>
-    <li>Написал модуль загрузки медиа: прямая загрузка в S3 и видео в G-Core Streaming с прогрессом и отменой. Платформа
-      запущена в продакшн.</li>
+    <li>Написал модуль загрузки медиа: прямая загрузка в S3 и видео в G-Core Streaming с прогрессом и отменой. Платформа в
+      продакшне.</li>
   </ul>
 </section>
 
@@ -171,10 +189,8 @@
   <ul>
     <li>HRCM — B2B-платформа HR-оценки (2023; 2025–2026): генерация PDF-отчётов; повторно привлечён на рефакторинг
       аутентификации — токены в cookies, Next.js middleware, тихий refresh токена через mutex.</li>
-    <li>Chatera Admin — админ-панель платформы чат-ботов (2024): разработал с нуля, 76% коммитов, биллинг и подписки,
-      загрузка в S3 по signed URL.</li>
-    <li>Dauys Chat Bots — SaaS-конструктор чат-ботов, команда 20+ разработчиков (2024–2025): сквозной сценарий оплаты,
-      интеграции Instagram, WhatsApp, Bitrix24, аналитика.</li>
+    <li>Chatera Admin — админ-панель платформы чат-ботов (2024): с нуля, биллинг, подписки, загрузка в S3.</li>
+    <li>Dauys Chat Bots — конструктор чат-ботов, команда 20+ (2024–2025): оплата, интеграции, аналитика.</li>
   </ul>
 </section>
 
@@ -200,9 +216,7 @@
 
 <h2 class="section">Образование и языки</h2>
 <div class="edu">
-  <p>Томский государственный университет — радиофизический факультет, специальность «Лазерная техника и лазерные технологии»</p>
-  <p>Русский — родной · Английский — B2: свободно читаю техническую документацию и переписываюсь, разговорную практику
-    активно развиваю</p>
+  <p>Томский государственный университет, радиофизический факультет · Русский — родной, английский — B2</p>
 </div>
 
 </body>

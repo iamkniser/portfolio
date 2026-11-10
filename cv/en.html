@@ -57,6 +57,26 @@
 <h2 class="section">Professional experience</h2>
 
 <div class="company">
+  <h2>Freelance</h2>
+  <span class="date">September 2026 — present</span>
+</div>
+<p class="company-role">Full-stack Developer · remote</p>
+
+<section class="job">
+  <div class="job-head"><h3>ACBK — internal system for an environmental organisation</h3><span class="date">September 2026 — present</span></div>
+  <p class="job-role">Sole developer: from specification to UI</p>
+  <p class="job-stack">Next.js 16 · React 19 · TypeScript · Server Actions · shadcn/ui · Supabase · Python · LangGraph</p>
+  <ul>
+    <li>Analysed the client's processes, wrote the specification and designed a modular monolith on Next.js: reads in
+      Server Components, mutations in Server Actions, permission checks in the app and RLS in Postgres as a second line.</li>
+    <li>Built the business trips module: requests with an approval chain, PDF orders on the organisation's letterhead,
+      a people-and-vehicles timeline calendar with inline planning, and a cost dashboard by project.</li>
+    <li>AI features: an assistant panel (⌘/Ctrl+J) that answers questions about internal documents with links to the
+      exact clauses; a LangGraph agent drafts a trip request from free text, and a person confirms it before creation.</li>
+  </ul>
+</section>
+
+<div class="company">
   <h2>Galamat Tech</h2>
   <span class="date">December 2022 — August 2026</span>
 </div>
@@ -104,10 +124,8 @@
   <ul>
     <li>Built an asynchronous processing pipeline on pgmq and pg_cron: each stage (language detection, sentiment, NER,
       embeddings, clustering) runs as a separate queue with its own worker and a shared dead-letter queue.</li>
-    <li>Implemented clustering of mentions into storylines via embedding similarity, plus near-duplicate detection to
-      keep metrics clean.</li>
-    <li>Built an AI assistant on Vercel AI SDK and Claude with a registry of domain tools, response streaming and
-      prompt caching.</li>
+    <li>Implemented clustering of mentions into storylines via embedding similarity, and an AI assistant on Vercel AI
+      SDK and Claude with a registry of domain tools, streaming and prompt caching.</li>
     <li>Designed the PostgreSQL schema with RLS policies, 11 Edge Functions on Deno, and a six-screen frontend with live
       updates over Realtime subscriptions.</li>
   </ul>
@@ -122,10 +140,8 @@
     <li>Implemented in-browser video rendering with the WebCodecs API: demux → decode → Canvas overlay compositing →
       encode, with a decode-once optimisation (a single decode produces N personalised variants) and a MediaRecorder
       fallback for Safari.</li>
-    <li>Built a bulk publishing pipeline with concurrency limiting against Instagram API rate limits, per-account
-      progress reporting and partial-failure handling.</li>
-    <li>Developed an analytics module: Instagram Insights collection in batches of up to 2,000 links, engagement-rate
-      calculation, period comparison, CSV and PDF export.</li>
+    <li>Built a bulk publishing pipeline with concurrency limiting against Instagram API rate limits and partial-failure
+      handling; Instagram Insights analytics in batches of up to 2,000 links, CSV / PDF export.</li>
   </ul>
 </section>
 
@@ -139,9 +155,8 @@
     <li>Implemented real-time chat over WebSocket: optimistic sending with pending / sent / error states, deduplication
       of incoming messages, infinite conversation loading.</li>
     <li>Designed an extensible scenario builder around an ActionRegistry pattern — new action types (handover to
-      operator, deal creation in amoCRM and Bitrix24, arbitrary HTTP requests) plug in without touching the core.</li>
-    <li>Built channel integrations (Telegram, WhatsApp via Green API with QR authentication, Instagram), AI agent
-      configuration and tiered billing.</li>
+      operator, deal creation in amoCRM and Bitrix24, arbitrary HTTP requests) plug in without touching the core;
+      channel integrations (Telegram, WhatsApp, Instagram) and tiered billing.</li>
   </ul>
 </section>
 
@@ -151,10 +166,8 @@
   <p class="job-stack">Next.js · TypeScript · RTK Query · Turborepo · CKEditor 5 · S3 · G-Core Streaming</p>
   <ul>
     <li>Designed the architecture of two applications in a Turborepo monorepo following Feature-Sliced Design, with
-      shared packages enabling code reuse between the student area and the admin panel; agreed conventions with the
-      team and enforced them in code review.</li>
-    <li>Built the student area (courses, lessons, quizzes, XP-based gamification, subscriptions) and a role-based admin
-      panel: drag-and-drop course builder, WYSIWYG editors with mathematical formula support, performance dashboards.</li>
+      shared packages; enforced conventions in code review. Built the student area (courses, quizzes, XP gamification)
+      and a role-based admin panel with a course builder and WYSIWYG editors with formula support.</li>
     <li>Implemented a media upload module with direct-to-S3 uploads and video delivery via G-Core Streaming, including
       progress and cancellation. Platform shipped to production.</li>
   </ul>
@@ -165,24 +178,19 @@
   <p class="job-role">Frontend developer · team of 8 · 791 of 2,016 commits</p>
   <p class="job-stack">Next.js 13 · React 18 · TypeScript · RTK Query · Mantine · Turborepo · Zoom SDK</p>
   <ul>
-    <li>Developed the instructor and student applications in a monorepo; contributed to adopting Feature-Sliced Design
-      (~39,000 lines) on an existing codebase within an eight-person team.</li>
-    <li>Built the learning content editor (tree-structured courses with drag-and-drop, TipTap WYSIWYG, assignments with
-      instructor grading), an RBAC permission system and Zoom Meeting SDK integration for in-app webinars.</li>
-    <li>Worked in Scrum: sprint planning, grooming, retrospectives, collaboration with QA and the product team.</li>
+    <li>Built the learning content editor (tree-structured courses with drag-and-drop, TipTap WYSIWYG), an RBAC
+      permission system and Zoom Meeting SDK integration for webinars; contributed to adopting Feature-Sliced Design
+      (~39,000 lines). Worked in Scrum with QA and the product team.</li>
   </ul>
 </section>
 
 <section class="job">
   <h3>Other company projects</h3>
   <ul>
-    <li>HRCM — B2B HR assessment platform (2023; 2025–2026): analytics section, PDF report generation; brought back to
-      refactor authentication — cookie-based tokens, Next.js middleware, silent token refresh guarded by a mutex to
-      prevent refresh races across parallel requests.</li>
-    <li>Chatera Admin — internal admin panel for the chatbot platform (2024): built from scratch, 76% of commits,
-      Next.js 14 App Router, billing and subscriptions, direct-to-S3 uploads via signed URLs.</li>
-    <li>Dauys Chat Bots — chatbot builder SaaS, team of 20+ (2024–2025): bot analytics on Recharts, end-to-end payment
-      flow, Instagram, WhatsApp and Bitrix24 integrations.</li>
+    <li>HRCM — B2B HR assessment platform (2023; 2025–2026): PDF reports; brought back to refactor authentication —
+      cookie-based tokens, Next.js middleware, silent token refresh guarded by a mutex.</li>
+    <li>Chatera Admin — admin panel for the chatbot platform (2024): built from scratch, billing, subscriptions, S3 uploads.</li>
+    <li>Dauys Chat Bots — chatbot builder SaaS, team of 20+ (2024–2025): analytics on Recharts, payments, integrations.</li>
   </ul>
 </section>
 
@@ -207,9 +215,7 @@
 
 <h2 class="section">Education &amp; languages</h2>
 <div class="edu">
-  <p>Tomsk State University — Faculty of Radiophysics, Laser Engineering and Laser Technologies</p>
-  <p>Russian — native · English — B2: confident reading technical documentation and written communication; actively
-    developing spoken fluency</p>
+  <p>Tomsk State University, Faculty of Radiophysics · Russian — native, English — B2</p>
 </div>
 
 </body>
