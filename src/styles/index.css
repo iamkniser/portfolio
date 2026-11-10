@@ -9,34 +9,38 @@
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);
   --color-signal: var(--signal);
+  --color-on-accent: var(--on-accent);
 
   --font-display: 'Unbounded', 'IBM Plex Sans', system-ui, sans-serif;
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
-/* Светлая тема — основная */
+/* Светлая тема — основная, палитра «Кобальт» */
 :root {
-  --paper: #f4f6f3;
+  --paper: #f3f5f9;
   --surface: #ffffff;
-  --ink: #101512;
-  --slate: #5c6660;
-  --line: #d9ded8;
-  --accent: #1f5d45;
-  --accent-dim: #e4ede8;
-  --signal: #a8421f;
+  --ink: #0e1320;
+  --slate: #58607a;
+  --line: #d8dde8;
+  --accent: #2747c9;
+  --accent-dim: #e3e9fa;
+  --on-accent: #ffffff;
+  --signal: #a8461a;
   color-scheme: light;
 }
 
+/* Тёмная тема — палитра «Графит + лайм». Лайм светлый, текст на нём тёмный */
 :root[data-theme='dark'] {
-  --paper: #0e1512;
-  --surface: #151e1a;
-  --ink: #e8ede9;
-  --slate: #93a099;
-  --line: #24312b;
-  --accent: #5fbf97;
-  --accent-dim: #16241e;
-  --signal: #d4714e;
+  --paper: #111413;
+  --surface: #1a1e1c;
+  --ink: #e8ece9;
+  --slate: #98a29c;
+  --line: #2c322f;
+  --accent: #c4f06a;
+  --accent-dim: #26301c;
+  --on-accent: #111413;
+  --signal: #ff9466;
   color-scheme: dark;
 }
 

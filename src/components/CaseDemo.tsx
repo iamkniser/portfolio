@@ -74,7 +74,7 @@ function AgentDemo() {
         ))}
       </div>
       <div className="mt-auto flex flex-wrap items-center gap-3">
-        <span className="demo-pulse inline-flex items-center gap-2 rounded-full bg-accent px-[18px] py-3 text-[15px] font-medium text-paper">
+        <span className="demo-pulse inline-flex items-center gap-2 rounded-full bg-accent px-[18px] py-3 text-[15px] font-medium text-on-accent">
           <Check size={16} />
           Подтвердить заявку
         </span>
@@ -262,7 +262,7 @@ interface Variant {
 function VideoDemo() {
   const variants: Variant[] = [
     { step: 'demo-s2', fill: 'demo-fill-a', bg: 'bg-accent-dim', text: 'text-ink', label: 'ТЕКСТ A', logo: 'rounded-full bg-accent' },
-    { step: 'demo-s3', fill: 'demo-fill-a', bg: 'bg-accent', text: 'text-paper', label: 'ТЕКСТ B', logo: 'rounded bg-paper' },
+    { step: 'demo-s3', fill: 'demo-fill-a', bg: 'bg-accent', text: 'text-on-accent', label: 'ТЕКСТ B', logo: 'rounded bg-paper' },
     { step: 'demo-s4', fill: 'demo-fill-b', bg: 'bg-ink', text: 'text-accent-dim', label: 'ТЕКСТ C', logo: 'rounded-full bg-accent-dim', flipped: true },
     { step: 'demo-s5', fill: 'demo-fill-b', bg: 'bg-paper', text: 'text-ink', label: 'ТЕКСТ D', logo: 'rounded bg-signal', flipped: true },
   ]

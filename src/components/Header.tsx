@@ -32,7 +32,7 @@ export function Header() {
           <a
             href={profile.resumePdf}
             download
-            className="rounded-full bg-accent px-4 py-2.5 text-[14px] font-medium text-paper hover:opacity-90"
+            className="rounded-full bg-accent px-4 py-2.5 text-[14px] font-medium text-on-accent hover:opacity-90"
           >
             Резюме PDF
           </a>

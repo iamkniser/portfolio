@@ -26,7 +26,7 @@ export function Contacts() {
         </p>
       </div>
       <div className="flex min-w-0 flex-[0_1_360px] flex-col gap-2.5">
-        <a href={`mailto:${profile.email}`} className={`${row} bg-accent font-medium text-paper hover:opacity-90`}>
+        <a href={`mailto:${profile.email}`} className={`${row} bg-accent font-medium text-on-accent hover:opacity-90`}>
           <span className="min-w-0 truncate">{profile.email}</span>
           <span aria-hidden="true">→</span>
         </a>
