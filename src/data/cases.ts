@@ -19,6 +19,8 @@ export interface CaseStudy {
   /** Зацикленное демо ключевой механики рядом с текстом */
   demo?: { kind: DemoKind; caption: string }
   image?: { src: string; alt: string; caption?: string }
+  /** Живой адрес продукта */
+  link?: { href: string; label: string }
 }
 
 export const cases: CaseStudy[] = [
@@ -248,6 +250,7 @@ export const cases: CaseStudy[] = [
       'Ребёнок входит по QR-коду без пароля, а ответы сохраняются даже без интернета и уходят на сервер, когда связь появится.',
       'Слово поднимается на ступень, только если ученик вспомнил его после паузы, а не угадал из вариантов.',
     ],
+    link: { href: 'https://soz.garden', label: 'soz.garden' },
     result: 'Сайт работает и ставится на телефон как приложение. В стартовых наборах 61 казахское и 133 английских слова.',
     demo: {
       kind: 'garden',

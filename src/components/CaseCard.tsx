@@ -43,15 +43,27 @@ export function CaseCard({ study, index }: { study: CaseStudy; index: number }) 
           ))}
         </ul>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls={detailsId}
-          className="min-h-11 self-start py-2.5 font-medium text-accent hover:opacity-80"
-        >
-          {open ? 'Свернуть ↑' : 'Как это устроено ↓'}
-        </button>
+        <div className="flex flex-wrap items-center gap-x-8">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls={detailsId}
+            className="min-h-11 py-2.5 font-medium text-accent hover:opacity-80"
+          >
+            {open ? 'Свернуть ↑' : 'Как это устроено ↓'}
+          </button>
+          {study.link && (
+            <a
+              href={study.link.href}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex min-h-11 items-center py-2.5 font-mono text-[14px] text-ink underline decoration-line underline-offset-4 hover:text-accent"
+            >
+              {study.link.label} ↗
+            </a>
+          )}
+        </div>
       </div>
 
       {study.demo ? (
