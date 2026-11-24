@@ -315,20 +315,36 @@ function VideoDemo() {
 function GardenDemo() {
   const stages = ['семечко', 'росток', 'листочки', 'цветок', 'большой цветок', 'дерево']
   const days = [0, 1, 2, 4, 7, 14]
+  const word = ['м', 'е', 'к', 'т', 'е', 'п']
+  /** Перемешанный набор: номер клетки, в которую уходит буква (т п е м к е) */
+  const bank = [3, 5, 1, 0, 2, 4]
   return (
     <>
       <Head left="урок · собери слово" right="PWA · офлайн" />
       <div className="demo-s1 flex flex-col gap-3 rounded-xl border border-line bg-paper px-4 py-3.5">
         <span className="text-[14px] text-slate">школа</span>
-        <div className="flex flex-wrap gap-1.5 font-mono text-[15px]">
-          {['м', 'е', 'к', 'т', 'е', 'п'].map((l, i) => (
-            <span key={i} className="rounded-md border border-line bg-surface px-2.5 py-1">
-              {l}
+        {/* Клетки слова: буква i проявляется на шаге demo-put-i, в наборе ниже та же буква гаснет (demo-used-i) */}
+        <div className="flex gap-1.5 font-mono text-[15px]">
+          {word.map((l, i) => (
+            <span key={i} className="relative h-9 w-9 rounded-md border border-dashed border-line">
+              <span className={`demo-put-${i + 1} absolute -inset-px flex items-center justify-center rounded-md bg-accent-dim text-ink`}>
+                {l}
+              </span>
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-1.5 font-mono text-[15px]">
+          {bank.map((slot, i) => (
+            <span
+              key={i}
+              className={`demo-used-${slot + 1} flex h-9 w-9 items-center justify-center rounded-md border border-line bg-surface`}
+            >
+              {word[slot]}
             </span>
           ))}
         </div>
       </div>
-      <p className={`demo-s2 ${mono12} text-accent`}>мектеп ✓ · собрано по памяти, а не выбрано из вариантов</p>
+      <p className={`demo-s3 ${mono12} text-accent`}>мектеп ✓ · собрано по памяти, а не выбрано из вариантов</p>
       <div className="flex flex-col gap-2">
         <div className={mono}>СТУПЕНЬ · ПОВТОР ЧЕРЕЗ, ДНЕЙ</div>
         <div className="grid grid-cols-6 gap-1.5">

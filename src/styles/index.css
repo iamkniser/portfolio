@@ -154,6 +154,32 @@ body {
 @keyframes demo-pulse { 0%, 70% { box-shadow: 0 0 0 0 transparent } 76% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent) } 84%, 100% { box-shadow: 0 0 0 0 transparent } }
 .demo-pulse { animation: demo-k5 10s ease infinite, demo-pulse 10s ease infinite }
 
+/* Сад слов: буквы по одной уходят из набора в клетки, 10%…30% цикла с шагом 4% */
+@keyframes demo-put-1 { 0%, 10% { opacity: 0; transform: translateY(14px) scale(0.85) } 13%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-put-2 { 0%, 14% { opacity: 0; transform: translateY(14px) scale(0.85) } 17%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-put-3 { 0%, 18% { opacity: 0; transform: translateY(14px) scale(0.85) } 21%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-put-4 { 0%, 22% { opacity: 0; transform: translateY(14px) scale(0.85) } 25%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-put-5 { 0%, 26% { opacity: 0; transform: translateY(14px) scale(0.85) } 29%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-put-6 { 0%, 30% { opacity: 0; transform: translateY(14px) scale(0.85) } 33%, 90% { opacity: 1; transform: none } 96%, 100% { opacity: 0 } }
+@keyframes demo-used-1 { 0%, 10% { opacity: 1 } 13%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+@keyframes demo-used-2 { 0%, 14% { opacity: 1 } 17%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+@keyframes demo-used-3 { 0%, 18% { opacity: 1 } 21%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+@keyframes demo-used-4 { 0%, 22% { opacity: 1 } 25%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+@keyframes demo-used-5 { 0%, 26% { opacity: 1 } 29%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+@keyframes demo-used-6 { 0%, 30% { opacity: 1 } 33%, 96% { opacity: 0.2 } 100% { opacity: 1 } }
+.demo-put-1 { animation: demo-put-1 10s ease infinite }
+.demo-put-2 { animation: demo-put-2 10s ease infinite }
+.demo-put-3 { animation: demo-put-3 10s ease infinite }
+.demo-put-4 { animation: demo-put-4 10s ease infinite }
+.demo-put-5 { animation: demo-put-5 10s ease infinite }
+.demo-put-6 { animation: demo-put-6 10s ease infinite }
+.demo-used-1 { animation: demo-used-1 10s ease infinite }
+.demo-used-2 { animation: demo-used-2 10s ease infinite }
+.demo-used-3 { animation: demo-used-3 10s ease infinite }
+.demo-used-4 { animation: demo-used-4 10s ease infinite }
+.demo-used-5 { animation: demo-used-5 10s ease infinite }
+.demo-used-6 { animation: demo-used-6 10s ease infinite }
+
 /* Без движения — сразу финальный кадр */
 @media (prefers-reduced-motion: reduce) {
   .demo * { animation: none !important }
@@ -161,4 +187,5 @@ body {
   .demo .demo-dedup-wrap,
   .demo .demo-typing-wrap { display: none }
   .demo .demo-travel-dot { position: static; display: inline-block; margin-right: 8px }
+  .demo [class*='demo-used-'] { opacity: 0.2 }
 }
