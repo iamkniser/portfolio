@@ -312,10 +312,57 @@ function VideoDemo() {
   )
 }
 
+function GardenDemo() {
+  const stages = ['семечко', 'росток', 'листочки', 'цветок', 'большой цветок', 'дерево']
+  const days = [0, 1, 2, 4, 7, 14]
+  return (
+    <>
+      <Head left="урок · собери слово" right="PWA · офлайн" />
+      <div className="demo-s1 flex flex-col gap-3 rounded-xl border border-line bg-paper px-4 py-3.5">
+        <span className="text-[14px] text-slate">школа</span>
+        <div className="flex flex-wrap gap-1.5 font-mono text-[15px]">
+          {['м', 'е', 'к', 'т', 'е', 'п'].map((l, i) => (
+            <span key={i} className="rounded-md border border-line bg-surface px-2.5 py-1">
+              {l}
+            </span>
+          ))}
+        </div>
+      </div>
+      <p className={`demo-s2 ${mono12} text-accent`}>мектеп ✓ · собрано по памяти, а не выбрано из вариантов</p>
+      <div className="flex flex-col gap-2">
+        <div className={mono}>СТУПЕНЬ · ПОВТОР ЧЕРЕЗ, ДНЕЙ</div>
+        <div className="grid grid-cols-6 gap-1.5">
+          {stages.map((name, i) => (
+            <div key={name} className="flex min-w-0 flex-col gap-1">
+              <div
+                className={`h-2 rounded-full ${i < 2 ? 'bg-accent' : i === 2 ? 'demo-s3 bg-accent' : 'bg-line'}`}
+              />
+              <span className={`truncate text-[11px] ${i === 2 ? 'text-ink' : 'text-slate'}`}>{name}</span>
+              <span className={mono}>{days[i]}</span>
+            </div>
+          ))}
+        </div>
+        <p className={`demo-s3 ${mono12}`}>росток → листочки · следующий повтор через 2 дня</p>
+      </div>
+      <div className="mt-auto flex flex-col gap-2">
+        <div className="demo-s4 flex flex-wrap items-center gap-2.5 rounded-xl border border-dashed border-signal px-4 py-3 text-[14px]">
+          <span className="font-mono text-[12px] text-signal">нет сети</span>
+          ответ лежит в очереди на телефоне · 1
+        </div>
+        <div className="demo-s5 flex flex-wrap items-center gap-2.5 rounded-xl border border-accent bg-accent-dim px-4 py-3 text-[14px]">
+          <Check size={16} className="text-accent" />
+          сеть появилась → очередь отправлена в Supabase
+        </div>
+      </div>
+    </>
+  )
+}
+
 const demos: Record<DemoKind, () => ReactNode> = {
   agent: AgentDemo,
   rag: RagDemo,
   chat: ChatDemo,
   pipeline: PipelineDemo,
   video: VideoDemo,
+  garden: GardenDemo,
 }
