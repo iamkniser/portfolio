@@ -6,8 +6,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-[8px]">
       <div className="mx-auto flex max-w-[1288px] flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-3.5">
-        <a href="#profile" className="font-display text-[15px] font-medium text-ink no-underline">
-          Кривошеев
+        <a href="#profile" aria-label="Никита Кривошеев, на главную" className="no-underline">
+          <img src="/wordmark-light.svg" alt="" className="h-5 [:root[data-theme=dark]_&]:hidden" />
+          <img src="/wordmark-dark.svg" alt="" className="hidden h-5 [:root[data-theme=dark]_&]:block" />
         </a>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
           <nav aria-label="Разделы страницы" className="hidden gap-5 md:flex">
